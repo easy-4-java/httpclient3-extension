@@ -2,6 +2,8 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
+[![Java](https://img.shields.io/badge/Java-17-orange)](https://github.com/easy-4-java/httpclient3-extension) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](https://www.apache.org/licenses/LICENSE-2.0.txt)
+
 Apache HttpClient 3.x（`commons-httpclient` 3.1）的扩展工具 — URI 构建、SSL/密钥库工具、连接属性、响应处理抽象、multipart 数据源与 Content-Type / Header 常量。
 
 ## 目录
