@@ -8,7 +8,7 @@ import org.apache.commons.httpclient.methods.multipart.PartSource;
 /**
  *@类名称	: InputStreamPartSource.java
  *@类描述	：
- *@创建人	：hiwepy
+ * @author [@Loong Wan](https://github.com/loong10k)
  *@创建时间	：2016年4月26日 下午4:32:45
  *@修改人	：
  *@修改时间	：
