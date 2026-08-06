@@ -5,7 +5,7 @@ import java.io.IOException;
 /**
  * @类名称 : HttpResponseException.java
  * @类描述 ：
- * @创建人 ：hiwepy
+ * @author [@Loong Wan](https://github.com/loong10k)
  * @创建时间 ：2016年4月27日 上午11:56:28
  * @修改人 ：
  * @修改时间 ：
