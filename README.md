@@ -2,6 +2,8 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
+[![Java](https://img.shields.io/badge/Java-8-orange)](https://github.com/easy-4-java/httpclient3-extension) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](https://www.apache.org/licenses/LICENSE-2.0.txt)
+
 Extensions for Apache HttpClient 3.x (`commons-httpclient` 3.1) — URI builders, SSL/keystore utilities, connection properties, response handling, multipart sources and content-type / header constants.
 
 ## Table of Contents
