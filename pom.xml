@@ -52,7 +52,9 @@
         <commons-lang3.version>3.20.0</commons-lang3.version>
         <maven-compiler-plugin.version>3.15.0</maven-compiler-plugin.version>
         <jacoco-maven-plugin.version>0.8.15</jacoco-maven-plugin.version>
-    </properties>
+    
+		<commons-httpclient.version>3.1</commons-httpclient.version>
+		<dom4j.version>2.2.0</dom4j.version></properties>
 
     <!-- 依赖版本统一管理（dependencyManagement） -->
     <dependencyManagement>
@@ -74,7 +76,7 @@
             <dependency>
                 <groupId>commons-httpclient</groupId>
                 <artifactId>commons-httpclient</artifactId>
-                <version>3.1</version>
+                <version>${commons-httpclient.version}</version>
             </dependency>
             <!-- For Commons Lang3 -->
             <dependency>
@@ -86,7 +88,7 @@
             <dependency>
                 <groupId>org.dom4j</groupId>
                 <artifactId>dom4j</artifactId>
-                <version>2.1.4</version>
+                <version>${dom4j.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
