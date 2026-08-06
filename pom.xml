@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"><modelVersion>4.0.0</modelVersion>
 <groupId>io.github.easy4j</groupId><artifactId>httpclient3-extension</artifactId><version>1.0.x.20260630-SNAPSHOT</version><packaging>jar</packaging>
-    <developers>
+        <developers>
         <developer>
             <name>Loong Wan</name>
             <email>hiwepy@gmail.com</email>
