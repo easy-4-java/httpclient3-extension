@@ -37,9 +37,9 @@ import javax.net.ssl.X509ExtendedKeyManager;
 
 
 /**
- * General KeyManager utilities
- * <p>
- * How to use with a client certificate:
+ * General KeyManager utilities.
+ *
+ * <p>How to use with a client certificate:</p>
  * <pre>
  * KeyManager km = KeyManagerUtils.createClientKeyManager("JKS",
  *     "/path/to/privatekeystore.jks","storepassword",
@@ -48,10 +48,11 @@ import javax.net.ssl.X509ExtendedKeyManager;
  * cl.setKeyManager(km);
  * cl.connect(...);
  * </pre>
- * If using the default store type and the key password is the same as the
- * store password, these parameters can be omitted. <br>
- * If the desired key is the first or only key in the keystore, the keyAlias parameter
- * can be omitted, in which case the code becomes:
+ *
+ * <p>If using the default store type and the key password is the same as
+ * the store password, these parameters can be omitted. If the desired key
+ * is the first or only key in the keystore, the keyAlias parameter can be
+ * omitted, in which case the code becomes:</p>
  * <pre>
  * KeyManager km = KeyManagerUtils.createClientKeyManager(
  *     "/path/to/privatekeystore.jks","storepassword");
@@ -60,25 +61,39 @@ import javax.net.ssl.X509ExtendedKeyManager;
  * cl.connect(...);
  * </pre>
  *
- * @since 3.0
+ * <p>The class is final and not instantiable.</p>
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see javax.net.ssl.KeyManager
+ * @see javax.net.ssl.X509ExtendedKeyManager
  */
 public final class KeyManagerUtils {
 
+    /** Cached default {@link KeyStore} type for the current JVM. */
     private static final String DEFAULT_STORE_TYPE = KeyStore.getDefaultType();
 
+    /**
+     * Prevent instantiation: this class provides only static helpers.
+     */
     private KeyManagerUtils(){
         // Not instantiable
     }
 
     /**
-     * Create a client key manager which returns a particular key.
-     * Does not handle server keys.
+     * Create a client key manager which returns a particular key. Does not
+     * handle server keys.
      *
-     * @param ks the keystore to use
-     * @param keyAlias the alias of the key to use, may be {@code null} in which case the first key entry alias is used
-     * @param keyPass the password of the key to use
-     * @return the customised KeyManager
-     * @throws GeneralSecurityException if there is a problem creating the keystore
+     * @param ks       the keystore to use, must not be {@code null}
+     * @param keyAlias the alias of the key to use; may be {@code null} in
+     *                 which case the first key-entry alias found in the
+     *                 keystore is used
+     * @param keyPass  the password of the key to use, must not be {@code null}
+     * @return the customised {@link KeyManager}
+     * @throws GeneralSecurityException if the keystore cannot be inspected,
+     *                                 the requested alias cannot be
+     *                                 resolved, or the supplied password is
+     *                                 incorrect
      */
     public static KeyManager createClientKeyManager(KeyStore ks, String keyAlias, String keyPass)
         throws GeneralSecurityException
@@ -88,17 +103,18 @@ public final class KeyManagerUtils {
     }
 
     /**
-     * Create a client key manager which returns a particular key.
-     * Does not handle server keys.
+     * Create a client key manager which returns a particular key. Does not
+     * handle server keys.
      *
-     * @param storeType the type of the keyStore, e.g. "JKS"
-     * @param storePath the path to the keyStore
-     * @param storePass the keyStore password
-     * @param keyAlias the alias of the key to use, may be {@code null} in which case the first key entry alias is used
-     * @param keyPass the password of the key to use
-     * @return the customised KeyManager
-     * @throws GeneralSecurityException if there is a problem creating the keystore
-     * @throws IOException if there is a problem creating the keystore
+     * @param storeType the type of the keyStore, e.g. {@code "JKS"}
+     * @param storePath the path to the keyStore file, must not be {@code null}
+     * @param storePass the keystore password, must not be {@code null}
+     * @param keyAlias  the alias of the key to use; may be {@code null}
+     * @param keyPass   the password of the key to use, must not be {@code null}
+     * @return the customised {@link KeyManager}
+     * @throws GeneralSecurityException if the keystore cannot be loaded or
+     *                                 inspected
+     * @throws IOException              if the keystore file cannot be read
      */
     public static KeyManager createClientKeyManager(
             String storeType, File storePath, String storePass, String keyAlias, String keyPass)
@@ -109,16 +125,17 @@ public final class KeyManagerUtils {
     }
 
     /**
-     * Create a client key manager which returns a particular key.
-     * Does not handle server keys.
-     * Uses the default store type and assumes the key password is the same as the store password
+     * Create a client key manager which returns a particular key. Does not
+     * handle server keys. Uses the default store type and assumes the key
+     * password is the same as the store password.
      *
-     * @param storePath the path to the keyStore
-     * @param storePass the keyStore password
-     * @param keyAlias the alias of the key to use, may be {@code null} in which case the first key entry alias is used
-     * @return the customised KeyManager
-     * @throws IOException if there is a problem creating the keystore
-     * @throws GeneralSecurityException if there is a problem creating the keystore
+     * @param storePath the path to the keyStore file
+     * @param storePass the keystore and key password
+     * @param keyAlias  the alias of the key to use; may be {@code null}
+     * @return the customised {@link KeyManager}
+     * @throws IOException              if the keystore file cannot be read
+     * @throws GeneralSecurityException if the keystore cannot be loaded or
+     *                                 inspected
      */
     public static KeyManager createClientKeyManager(File storePath, String storePass, String keyAlias)
         throws IOException, GeneralSecurityException
@@ -127,16 +144,17 @@ public final class KeyManagerUtils {
     }
 
     /**
-     * Create a client key manager which returns a particular key.
-     * Does not handle server keys.
-     * Uses the default store type and assumes the key password is the same as the store password.
-     * The key alias is found by searching the keystore for the first private key entry
+     * Create a client key manager which returns a particular key. Does not
+     * handle server keys. Uses the default store type, assumes the key
+     * password is the same as the store password, and discovers the alias
+     * by selecting the first private-key entry in the keystore.
      *
-     * @param storePath the path to the keyStore
-     * @param storePass the keyStore password
-     * @return the customised KeyManager
-     * @throws IOException if there is a problem creating the keystore
-     * @throws GeneralSecurityException if there is a problem creating the keystore
+     * @param storePath the path to the keyStore file
+     * @param storePass the keystore and key password
+     * @return the customised {@link KeyManager}
+     * @throws IOException              if the keystore file cannot be read
+     * @throws GeneralSecurityException if the keystore cannot be loaded or
+     *                                 no private-key entry can be located
      */
     public static KeyManager createClientKeyManager(File storePath, String storePass)
         throws IOException, GeneralSecurityException
@@ -144,6 +162,17 @@ public final class KeyManagerUtils {
         return createClientKeyManager(DEFAULT_STORE_TYPE, storePath, storePass, null, storePass);
     }
 
+    /**
+     * Read a {@link KeyStore} from disk.
+     *
+     * @param storeType the type of the keyStore, e.g. {@code "JKS"}
+     * @param storePath the path to the keyStore file
+     * @param storePass the keystore password
+     * @return the loaded keystore
+     * @throws KeyStoreException       if the keystore cannot be instantiated
+     * @throws IOException              if the keystore file cannot be read
+     * @throws GeneralSecurityException if the keystore cannot be loaded
+     */
     private static KeyStore loadStore(String storeType, File storePath, String storePass)
         throws KeyStoreException,  IOException, GeneralSecurityException {
         KeyStore ks = KeyStore.getInstance(storeType);
@@ -157,6 +186,13 @@ public final class KeyManagerUtils {
         return ks;
     }
 
+    /**
+     * Locate the first private-key alias in the supplied keystore.
+     *
+     * @param ks the keystore to inspect, must not be {@code null}
+     * @return the alias of the first private-key entry
+     * @throws KeyStoreException if no private-key entry can be found
+     */
     private static String findAlias(KeyStore ks) throws KeyStoreException {
         Enumeration<String> e = ks.aliases();
         while(e.hasMoreElements()) {
@@ -168,12 +204,30 @@ public final class KeyManagerUtils {
         throw new KeyStoreException("Cannot find a private key entry");
     }
 
+    /**
+     * Internal value object holding a single client key together with its
+     * certificate chain.
+     */
     private static class ClientKeyStore {
 
+        /** The certificate chain associated with the selected key. */
         private final X509Certificate[] certChain;
+
+        /** The private key itself. */
         private final PrivateKey key;
+
+        /** The alias under which the key is stored. */
         private final String keyAlias;
 
+        /**
+         * Construct a new client keystore value object.
+         *
+         * @param ks       the source keystore
+         * @param keyAlias the alias of the key to load
+         * @param keyPass  the password of the key
+         * @throws GeneralSecurityException if the key or its chain cannot
+         *                                  be retrieved
+         */
         ClientKeyStore(KeyStore ks, String keyAlias, String keyPass) throws GeneralSecurityException
         {
             this.keyAlias = keyAlias;
@@ -186,23 +240,43 @@ public final class KeyManagerUtils {
             this.certChain = X509certs;
         }
 
+        /**
+         * @return the certificate chain for the loaded key
+         */
         final X509Certificate[] getCertificateChain() {
             return this.certChain;
         }
 
+        /**
+         * @return the loaded private key
+         */
         final PrivateKey getPrivateKey() {
             return this.key;
         }
 
+        /**
+         * @return the alias under which the key is stored
+         */
         final String getAlias() {
             return this.keyAlias;
         }
     }
 
+    /**
+     * Internal {@link X509ExtendedKeyManager} implementation that always
+     * returns the same client key regardless of the issuer filter or
+     * socket supplied.
+     */
     private static class X509KeyManager extends X509ExtendedKeyManager  {
 
+        /** Source of the single key returned by this manager. */
         private final ClientKeyStore keyStore;
 
+        /**
+         * Construct a new key manager backed by the supplied client keystore.
+         *
+         * @param keyStore the source keystore; must not be {@code null}
+         */
         X509KeyManager(final ClientKeyStore keyStore) {
             this.keyStore = keyStore;
         }
@@ -242,13 +316,14 @@ public final class KeyManagerUtils {
         }
 
     }
-    
+
     /**
-     * Closes the object quietly, catching rather than throwing IOException.
-     * Intended for use from finally blocks.
+     * Closes the object quietly, catching rather than throwing any
+     * {@link IOException}. Intended for use from {@code finally} blocks.
      *
-     * @param closeable the object to close, may be {@code null}
-     * @since 3.0
+     * @param closeable the object to close; may be {@code null}
+     * @author [@Loong Wan](https://github.com/loong10k)
+     * @since 3.0.0
      */
     public static void closeQuietly(Closeable closeable) {
         if (closeable != null) {
