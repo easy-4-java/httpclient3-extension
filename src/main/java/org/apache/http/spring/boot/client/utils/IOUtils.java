@@ -21,14 +21,25 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * TODO
+ * General-purpose I/O helpers used throughout the
+ * {@code httpclient3-extension}.
+ *
+ * <p>The class primarily provides silent-close helpers that swallow any
+ * {@link IOException} &mdash; useful inside {@code finally} blocks where
+ * the original exception is more meaningful than a secondary close
+ * failure.</p>
+ *
  * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see java.io.Closeable
+ * @see java.io.InputStream
+ * @see java.io.OutputStream
  */
 public class IOUtils {
 
 
     /**
-     * Unconditionally close an <code>InputStream</code>.
+     * Unconditionally close an {@link InputStream}.
      * <p>
      * Equivalent to {@link InputStream#close()}, except any exceptions will be ignored.
      * This is typically used in finally blocks.
@@ -55,7 +66,7 @@ public class IOUtils {
     }
 
     /**
-     * Unconditionally close an <code>OutputStream</code>.
+     * Unconditionally close an {@link OutputStream}.
      * <p>
      * Equivalent to {@link OutputStream#close()}, except any exceptions will be ignored.
      * This is typically used in finally blocks.
@@ -81,9 +92,9 @@ public class IOUtils {
     public static void closeQuietly(OutputStream output) {
         closeQuietly((Closeable)output);
     }
-    
+
     /**
-     * Unconditionally close a <code>Closeable</code>.
+     * Unconditionally close a {@link Closeable}.
      * <p>
      * Equivalent to {@link Closeable#close()}, except any exceptions will be ignored.
      * This is typically used in finally blocks.
@@ -114,5 +125,5 @@ public class IOUtils {
             // ignore
         }
     }
-	
+
 }
