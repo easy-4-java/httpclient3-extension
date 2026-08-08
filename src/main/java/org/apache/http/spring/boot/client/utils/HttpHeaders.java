@@ -2,13 +2,28 @@ package org.apache.http.spring.boot.utils;
 
 
 /**
- * Constants enumerating the HTTP headers. All headers defined in RFC1945 (HTTP/1.0), RFC2616 (HTTP/1.1), and RFC2518
- * (WebDAV) are listed.
+ * Constants enumerating the HTTP headers.
  *
- * @since 4.1
+ * <p>All headers defined in
+ * <a href="https://www.w3.org/Protocols/HTTP/1.0/spec.html">RFC&nbsp;1945</a>
+ * (HTTP/1.0),
+ * <a href="https://datatracker.ietf.org/doc/html/rfc2616">RFC&nbsp;2616</a>
+ * (HTTP/1.1), and
+ * <a href="https://datatracker.ietf.org/doc/html/rfc2518">RFC&nbsp;2518</a>
+ * (WebDAV) are listed, together with a couple of de-facto extension
+ * headers such as {@link #X_FORWARDED_FOR} and {@link #X_REQUESTED_WITH}.</p>
+ *
+ * <p>The class is final and not instantiable.</p>
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see org.apache.http.spring.boot.client.ContentType
  */
 public final class HttpHeaders {
 
+    /**
+     * Prevent instantiation: this class provides only static constants.
+     */
     private HttpHeaders() {
     }
 
@@ -177,8 +192,17 @@ public final class HttpHeaders {
     /** RFC 1945 (HTTP/1.0) Section 10.16, RFC 2616 (HTTP/1.1) Section 14.47 */
     public static final String WWW_AUTHENTICATE = "WWW-Authenticate";
 
+	/**
+	 * De-facto standard header used by reverse proxies to record the
+	 * originating client IP address (lowercase form).
+	 */
 	public static final String X_FORWARDED_FOR = "x-forwarded-for";
-	
+
+	/**
+	 * De-facto standard header used by AJAX libraries (e.g. jQuery,
+	 * Axios) to signal that the request was triggered from JavaScript
+	 * rather than a plain navigation.
+	 */
 	public static final String X_REQUESTED_WITH = "X-Requested-With";
-	
+
 }
