@@ -24,18 +24,49 @@ import java.lang.reflect.Method;
 import javax.net.ssl.SSLSocket;
 
 /**
- * General utilities for SSLSocket.
- * @since 3.4
+ * General SSL socket utilities for the {@code httpclient3-extension}.
+ *
+ * <p>The single capability exposed by this class is enabling the
+ * {@code HTTPS} endpoint identification algorithm (also known as hostname
+ * verification) on a live {@link SSLSocket}. Because the algorithm property
+ * was only introduced in {@code javax.net.ssl.SSLParameters} on Java&nbsp;1.7
+ * and above, the implementation uses reflection so that it remains
+ * source-compatible with Java&nbsp;1.6.</p>
+ *
+ * <p>This class is not instantiable.</p>
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see javax.net.ssl.SSLSocket
+ * @see javax.net.ssl.SSLParameters
  */
 public class SSLSocketUtils {
+
+    /**
+     * Prevent instantiation: this class provides only static helpers.
+     */
     private SSLSocketUtils() {
         // Not instantiable
     }
 
     /**
-     * Enable the HTTPS endpoint identification algorithm on an SSLSocket.
-     * @param socket the SSL socket
-     * @return {@code true} on success (this is only supported on Java 1.7+)
+     * Enable the {@code HTTPS} endpoint identification algorithm on the
+     * supplied {@link SSLSocket}.
+     *
+     * <p>Internally this calls
+     * {@code SSLParameters.setEndpointIdentificationAlgorithm("HTTPS")} via
+     * reflection so the resulting code can run on Java releases older than
+     * 1.7. Any reflection error (missing class, missing method, sandbox
+     * restrictions, &hellip;) is treated as a no-op rather than a failure,
+     * which preserves backwards compatibility.</p>
+     *
+     * @param socket the SSL socket whose parameters should be reconfigured;
+     *               must not be {@code null}
+     * @return {@code true} if the endpoint identification algorithm was
+     *         successfully enabled; {@code false} if the JVM does not
+     *         expose the required APIs, the supplied socket could not be
+     *         queried for its SSL parameters, or any reflection-level
+     *         failure occurred
      */
     public static boolean enableEndpointNameVerification(SSLSocket socket) {
         try {

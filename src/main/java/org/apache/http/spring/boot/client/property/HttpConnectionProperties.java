@@ -17,21 +17,34 @@ package org.apache.http.spring.boot.client.property;
 
 import org.apache.commons.httpclient.params.HttpConnectionParams;
 
+/**
+ * Connection-level properties for an individual {@code httpclient3-extension}
+ * connection.
+ *
+ * <p>This class extends the legacy Apache HttpClient 3.1
+ * {@link HttpConnectionParams} so the same parameter bag can be reused as a
+ * Spring-bound properties object.</p>
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see HttpConnectionManagerProperties
+ * @see org.apache.commons.httpclient.params.HttpConnectionParams
+ */
 public class HttpConnectionProperties extends HttpConnectionParams {
 
 	/**
-	 * 
-	 * @description	： 处理默认参数
+	 * Convenience accessor that simply returns the underlying
+	 * {@link HttpConnectionParams} instance.
+	 *
+	 * @return this object, typed as its parent {@code HttpConnectionParams}
 	 * @author [@Loong Wan](https://github.com/loong10k)
-	 * @date 		：2017年12月3日 下午9:13:14
-	 * @return
 	 */
 	public HttpConnectionParams getHttpConnectionParams() {
-		
+
 		HttpConnectionParams params = this;
-		
+
 		return params;
-		
+
 	}
-	
+
 }
