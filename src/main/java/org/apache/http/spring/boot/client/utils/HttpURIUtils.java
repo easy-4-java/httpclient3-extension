@@ -29,7 +29,7 @@ import org.apache.commons.httpclient.util.URIUtil;
  *
  * <p>The class is abstract and not instantiable.</p>
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see NameValuePair
  * @see URIUtil
@@ -90,7 +90,7 @@ public abstract class HttpURIUtils {
 	 * @return a list of {@link NameValuePair} representing the combined
 	 *         parameters, never {@code null}
 	 * @throws URIException if any parameter value cannot be URL-encoded
-	 * @author [@Loong Wan](https://github.com/loong10k)
+	 * @author <a href="https://github.com/loong10k">Loong Wan</a>
 	 */
 	public static List<NameValuePair> buildNameValuePairs(String baseURL, Map<String, Object> paramsMap) throws URIException {
     	//初始参数集合对象

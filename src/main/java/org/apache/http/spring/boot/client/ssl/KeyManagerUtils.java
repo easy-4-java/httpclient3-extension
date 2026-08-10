@@ -63,7 +63,7 @@ import javax.net.ssl.X509ExtendedKeyManager;
  *
  * <p>The class is final and not instantiable.</p>
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see javax.net.ssl.KeyManager
  * @see javax.net.ssl.X509ExtendedKeyManager
@@ -322,7 +322,7 @@ public final class KeyManagerUtils {
      * {@link IOException}. Intended for use from {@code finally} blocks.
      *
      * @param closeable the object to close; may be {@code null}
-     * @author [@Loong Wan](https://github.com/loong10k)
+     * @author <a href="https://github.com/loong10k">Loong Wan</a>
      * @since 3.0.0
      */
     public static void closeQuietly(Closeable closeable) {

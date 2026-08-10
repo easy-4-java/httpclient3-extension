@@ -29,7 +29,7 @@ import java.io.OutputStream;
  * the original exception is more meaningful than a secondary close
  * failure.</p>
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see java.io.Closeable
  * @see java.io.InputStream

@@ -12,7 +12,7 @@ import java.io.IOException;
  * {@link IOException} &mdash; code that already catches
  * {@code IOException} does not need to be modified.</p>
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see java.io.IOException
  */

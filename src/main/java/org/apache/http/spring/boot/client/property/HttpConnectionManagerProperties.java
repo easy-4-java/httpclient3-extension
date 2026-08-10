@@ -39,7 +39,7 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
  *         governs how often idle connections are validated.</li>
  * </ul>
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see HttpConnectionProperties
  * @see org.apache.commons.httpclient.params.HttpConnectionManagerParams
@@ -200,7 +200,7 @@ public class HttpConnectionManagerProperties extends HttpConnectionManagerParams
 	 * </ul>
 	 *
 	 * @return this instance, for fluent configuration
-	 * @author [@Loong Wan](https://github.com/loong10k)
+	 * @author <a href="https://github.com/loong10k">Loong Wan</a>
 	 */
 	public HttpConnectionManagerProperties getInitedParams() {
 

@@ -15,7 +15,7 @@ package org.apache.http.spring.boot.utils;
  *
  * <p>The class is final and not instantiable.</p>
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see org.apache.http.spring.boot.client.ContentType
  */

@@ -25,7 +25,7 @@ import org.apache.commons.httpclient.HttpMethodBase;
  * threads.</p>
  *
  * @param <T> the type of value produced by {@link #handleResponse(HttpMethodBase)}
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see org.apache.commons.httpclient.HttpClient
  * @see org.apache.commons.httpclient.HttpMethodBase

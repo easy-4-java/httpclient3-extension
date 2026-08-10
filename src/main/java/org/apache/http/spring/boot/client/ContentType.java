@@ -12,7 +12,7 @@ package org.apache.http.spring.boot.client;
  * instantiated. All members are static and treated as compile-time
  * constants.</p>
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see org.apache.http.spring.boot.client.utils.HttpHeaders
  */

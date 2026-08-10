@@ -25,7 +25,7 @@ import org.apache.commons.httpclient.params.HttpConnectionParams;
  * {@link HttpConnectionParams} so the same parameter bag can be reused as a
  * Spring-bound properties object.</p>
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see HttpConnectionManagerProperties
  * @see org.apache.commons.httpclient.params.HttpConnectionParams
@@ -37,7 +37,7 @@ public class HttpConnectionProperties extends HttpConnectionParams {
 	 * {@link HttpConnectionParams} instance.
 	 *
 	 * @return this object, typed as its parent {@code HttpConnectionParams}
-	 * @author [@Loong Wan](https://github.com/loong10k)
+	 * @author <a href="https://github.com/loong10k">Loong Wan</a>
 	 */
 	public HttpConnectionParams getHttpConnectionParams() {
 

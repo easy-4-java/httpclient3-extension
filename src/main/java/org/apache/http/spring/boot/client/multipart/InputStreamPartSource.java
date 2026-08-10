@@ -16,7 +16,7 @@ import org.apache.commons.httpclient.methods.multipart.PartSource;
  * not closed by this class; the caller remains responsible for the
  * stream's lifecycle.</p>
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see org.apache.commons.httpclient.methods.multipart.PartSource
  */

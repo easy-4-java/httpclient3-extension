@@ -40,7 +40,7 @@ import javax.net.ssl.X509TrustManager;
  *
  * <p>The class is final and not instantiable.</p>
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see javax.net.ssl.X509TrustManager
  * @see javax.net.ssl.TrustManagerFactory

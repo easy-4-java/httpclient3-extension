@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
  *
  * <p>The class is abstract and not instantiable.</p>
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see HttpMethodBase
  * @see org.apache.http.spring.boot.client.utils.HttpHeaders
