@@ -8,15 +8,13 @@
     <version>3.0.x.20260630-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
 
-    
     <scm>
         <connection>scm:git:https://github.com/easy-4-java/${project.artifactId}.git</connection>
         <developerConnection>scm:git:https://github.com/easy-4-java/${project.artifactId}.git</developerConnection>
@@ -24,7 +22,6 @@
         <tag>${project.artifactId}</tag>
     </scm>
 
-    
     <developers>
         <developer>
             <name>Loong Wan</name>
@@ -37,7 +34,6 @@
         </developer>
     </developers>
 
-    
     <!-- 版本属性定义：Java 版本、依赖版本与 Maven 插件版本统一管理 -->
     <properties>
         <java.version>21</java.version>
@@ -59,35 +55,34 @@
         <maven-source-plugin.version>3.4.0</maven-source-plugin.version>
     </properties>
 
-    
     <dependencyManagement>
         <dependencies>
-            
+
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
                 <scope>provided</scope>
             </dependency>
-            
+
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
-            
+
             <dependency>
                 <groupId>commons-httpclient</groupId>
                 <artifactId>commons-httpclient</artifactId>
                 <version>${commons-httpclient.version}</version>
             </dependency>
-            
+
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3.version}</version>
             </dependency>
-            
+
             <dependency>
                 <groupId>org.dom4j</groupId>
                 <artifactId>dom4j</artifactId>
@@ -96,58 +91,54 @@
         </dependencies>
     </dependencyManagement>
 
-    
     <dependencies>
-        
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>commons-httpclient</groupId>
             <artifactId>commons-httpclient</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>org.dom4j</groupId>
             <artifactId>dom4j</artifactId>
         </dependency>
     </dependencies>
 
-    
     <build>
         <pluginManagement>
             <plugins>
 
-                
                 <plugin>
-                    
+
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven-compiler-plugin.version}</version>
                     <configuration>
-                    <release>${java.version}</release>
-                        </configuration>
+                        <release>${java.version}</release>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
 
-            
             <plugin>
-                
+
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${maven-jacoco-plugin.version}</version>
@@ -190,21 +181,18 @@
                 </executions>
             </plugin>
 
-            
             <plugin>
-                
+
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <release>${java.version}</release>
-                        
-                    
-                    
+
                     <parameters>true</parameters>
-                    
+
                     <encoding>${project.build.sourceEncoding}</encoding>
-                    
+
                     <maxmem>512M</maxmem>
                     <annotationProcessorPaths>
                         <path>
@@ -216,9 +204,8 @@
                 </configuration>
             </plugin>
 
-            
             <plugin>
-                
+
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>${maven-javadoc-plugin.version}</version>
@@ -236,9 +223,8 @@
                 </executions>
             </plugin>
 
-            
             <plugin>
-                
+
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
                 <version>${maven-source-plugin.version}</version>
@@ -254,7 +240,6 @@
         </plugins>
     </build>
 
-    
     <distributionManagement>
         <repository>
             <id>2624322-release-6F6h6R</id>
@@ -266,18 +251,15 @@
         </snapshotRepository>
     </distributionManagement>
 
-    
     <profiles>
-        
 
         <profile>
             <id>central</id>
             <build>
                 <plugins>
 
-                    
                     <plugin>
-                        
+
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
                         <version>${maven-gpg-plugin.version}</version>
@@ -292,9 +274,8 @@
                         </executions>
                     </plugin>
 
-                    
                     <plugin>
-                        
+
                         <groupId>org.sonatype.central</groupId>
                         <artifactId>central-publishing-maven-plugin</artifactId>
                         <version>${maven-central-publishing-plugin.version}</version>
