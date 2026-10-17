@@ -14,7 +14,7 @@ package org.apache.http.spring.boot.client;
  *
  * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
- * @see org.apache.http.spring.boot.client.utils.HttpHeaders
+ * @see org.apache.http.spring.boot.utils.HttpHeaders
  */
 public abstract class ContentType {
 
